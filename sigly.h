@@ -419,13 +419,11 @@ namespace sigly {
 		typedef typename sender_set::const_iterator const_iterator;
 
 	public:
-		HasSlots()
+		HasSlots(): mt_policy()
 		{
-			;
 		}
 
-		HasSlots(const HasSlots& hs)
-			: mt_policy(hs)
+		HasSlots(const HasSlots& hs): mt_policy(hs)
 		{
 			lock_block<mt_policy> lock(this);
 			const_iterator it = hs.m_senders.begin();
