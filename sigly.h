@@ -439,13 +439,13 @@ namespace sigly {
 			}
 		} 
 
-		void signal_connect(_signal_base<mt_policy>* sender)
+		void signalConnect(_signal_base<mt_policy>* sender)
 		{
 			lock_block<mt_policy> lock(this);
 			m_senders.insert(sender);
 		}
 
-		void signal_disconnect(_signal_base<mt_policy>* sender)
+		void signalDisconnect(_signal_base<mt_policy>* sender)
 		{
 			lock_block<mt_policy> lock(this);
 			m_senders.erase(sender);
@@ -497,7 +497,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_connect(this);
+				(*it)->getdest()->signalConnect(this);
 				m_connected_slots.push_back((*it)->clone());
 
 				++it;
@@ -517,7 +517,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_disconnect(this);
+				(*it)->getdest()->signalDisconnect(this);
 				delete *it;
 
 				++it;
@@ -538,7 +538,7 @@ namespace sigly {
 				{
 					delete *it;
 					m_connected_slots.erase(iterator(it++));
-					pclass->signal_disconnect(this);
+					pclass->signalDisconnect(this);
 					continue;
 				}
 
@@ -610,7 +610,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_connect(this);
+				(*it)->getdest()->signalConnect(this);
 				m_connected_slots.push_back((*it)->clone());
 
 				++it;
@@ -647,7 +647,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_disconnect(this);
+				(*it)->getdest()->signalDisconnect(this);
 				delete *it;
 
 				++it;
@@ -668,7 +668,7 @@ namespace sigly {
 				{
 					delete *it;
 					m_connected_slots.erase(iterator(it++));
-					pclass->signal_disconnect(this);
+					pclass->signalDisconnect(this);
 					continue;
 				}
 
@@ -725,7 +725,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_connect(this);
+				(*it)->getdest()->signalConnect(this);
 				m_connected_slots.push_back((*it)->clone());
 
 				++it;
@@ -762,7 +762,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_disconnect(this);
+				(*it)->getdest()->signalDisconnect(this);
 				delete *it;
 
 				++it;
@@ -783,7 +783,7 @@ namespace sigly {
 				{
 					delete *it;
 					m_connected_slots.erase(iterator(it++));
-					pclass->signal_disconnect(this);
+					pclass->signalDisconnect(this);
 					continue;
 				}
 
@@ -839,7 +839,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_connect(this);
+				(*it)->getdest()->signalConnect(this);
 				m_connected_slots.push_back((*it)->clone());
 
 				++it;
@@ -876,7 +876,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_disconnect(this);
+				(*it)->getdest()->signalDisconnect(this);
 				delete *it;
 
 				++it;
@@ -897,7 +897,7 @@ namespace sigly {
 				{
 					delete *it;
 					m_connected_slots.erase(iterator(it++));
-					pclass->signal_disconnect(this);
+					pclass->signalDisconnect(this);
 					continue;
 				}
 
@@ -953,7 +953,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_connect(this);
+				(*it)->getdest()->signalConnect(this);
 				m_connected_slots.push_back((*it)->clone());
 
 				++it;
@@ -990,7 +990,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_disconnect(this);
+				(*it)->getdest()->signalDisconnect(this);
 				delete *it;
 
 				++it;
@@ -1011,7 +1011,7 @@ namespace sigly {
 				{
 					delete *it;
 					this->m_connected_slots.erase(iterator(it++));
-					pclass->signal_disconnect(this);
+					pclass->signalDisconnect(this);
 					continue;
 				}
 
@@ -1069,7 +1069,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_connect(this);
+				(*it)->getdest()->signalConnect(this);
 				m_connected_slots.push_back((*it)->clone());
 
 				++it;
@@ -1106,7 +1106,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_disconnect(this);
+				(*it)->getdest()->signalDisconnect(this);
 				delete *it;
 
 				++it;
@@ -1127,7 +1127,7 @@ namespace sigly {
 				{
 					delete *it;
 					m_connected_slots.erase(iterator(it++));
-					pclass->signal_disconnect(this);
+					pclass->signalDisconnect(this);
 					continue;
 				}
 
@@ -1185,7 +1185,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_connect(this);
+				(*it)->getdest()->signalConnect(this);
 				m_connected_slots.push_back((*it)->clone());
 
 				++it;
@@ -1222,7 +1222,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_disconnect(this);
+				(*it)->getdest()->signalDisconnect(this);
 				delete *it;
 
 				++it;
@@ -1243,7 +1243,7 @@ namespace sigly {
 				{
 					delete *it;
 					m_connected_slots.erase(iterator(it++));
-					pclass->signal_disconnect(this);
+					pclass->signalDisconnect(this);
 					continue;
 				}
 
@@ -1301,7 +1301,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_connect(this);
+				(*it)->getdest()->signalConnect(this);
 				m_connected_slots.push_back((*it)->clone());
 
 				++it;
@@ -1338,7 +1338,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_disconnect(this);
+				(*it)->getdest()->signalDisconnect(this);
 				delete *it;
 
 				++it;
@@ -1359,7 +1359,7 @@ namespace sigly {
 				{
 					delete *it;
 					m_connected_slots.erase(iterator(it++));
-					pclass->signal_disconnect(this);
+					pclass->signalDisconnect(this);
 					continue;
 				}
 
@@ -1418,7 +1418,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_connect(this);
+				(*it)->getdest()->signalConnect(this);
 				m_connected_slots.push_back((*it)->clone());
 
 				++it;
@@ -1455,7 +1455,7 @@ namespace sigly {
 
 			while(it != itEnd)
 			{
-				(*it)->getdest()->signal_disconnect(this);
+				(*it)->getdest()->signalDisconnect(this);
 				delete *it;
 
 				++it;
@@ -1476,7 +1476,7 @@ namespace sigly {
 				{
 					delete *it;
 					m_connected_slots.erase(iterator(it++));
-					pclass->signal_disconnect(this);
+					pclass->signalDisconnect(this);
 					continue;
 				}
 
@@ -1947,7 +1947,7 @@ namespace sigly {
 			_connection0<desttype, mt_policy>* conn = 
 				new _connection0<desttype, mt_policy>(pclass, pmemfun);
 			this->m_connected_slots.push_back(conn);
-			pclass->signal_connect(this);
+			pclass->signalConnect(this);
 		}
 
 		void emit()
@@ -2008,7 +2008,7 @@ namespace sigly {
 			_connection1<desttype, arg1_type, mt_policy>* conn = 
 				new _connection1<desttype, arg1_type, mt_policy>(pclass, pmemfun);
 			this->m_connected_slots.push_back(conn);
-			pclass->signal_connect(this);
+			pclass->signalConnect(this);
 		}
 
 		void emit(arg1_type a1)
@@ -2070,7 +2070,7 @@ namespace sigly {
 			_connection2<desttype, arg1_type, arg2_type, mt_policy>* conn = new
 				_connection2<desttype, arg1_type, arg2_type, mt_policy>(pclass, pmemfun);
 			this->m_connected_slots.push_back(conn);
-			pclass->signal_connect(this);
+			pclass->signalConnect(this);
 		}
 
 		void emit(arg1_type a1, arg2_type a2)
@@ -2133,7 +2133,7 @@ namespace sigly {
 				new _connection3<desttype, arg1_type, arg2_type, arg3_type, mt_policy>(pclass,
 				pmemfun);
 			this->m_connected_slots.push_back(conn);
-			pclass->signal_connect(this);
+			pclass->signalConnect(this);
 		}
 
 		void emit(arg1_type a1, arg2_type a2, arg3_type a3)
@@ -2197,7 +2197,7 @@ namespace sigly {
 				conn = new _connection4<desttype, arg1_type, arg2_type, arg3_type,
 				arg4_type, mt_policy>(pclass, pmemfun);
 			this->m_connected_slots.push_back(conn);
-			pclass->signal_connect(this);
+			pclass->signalConnect(this);
 		}
 
 		void emit(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4)
@@ -2264,7 +2264,7 @@ namespace sigly {
 				arg5_type, mt_policy>* conn = new _connection5<desttype, arg1_type, arg2_type,
 				arg3_type, arg4_type, arg5_type, mt_policy>(pclass, pmemfun);
 			this->m_connected_slots.push_back(conn);
-			pclass->signal_connect(this);
+			pclass->signalConnect(this);
 		}
 
 		void emit(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
@@ -2336,7 +2336,7 @@ namespace sigly {
 				new _connection6<desttype, arg1_type, arg2_type, arg3_type,
 				arg4_type, arg5_type, arg6_type, mt_policy>(pclass, pmemfun);
 			this->m_connected_slots.push_back(conn);
-			pclass->signal_connect(this);
+			pclass->signalConnect(this);
 		}
 
 		void emit(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
@@ -2408,7 +2408,7 @@ namespace sigly {
 				new _connection7<desttype, arg1_type, arg2_type, arg3_type,
 				arg4_type, arg5_type, arg6_type, arg7_type, mt_policy>(pclass, pmemfun);
 			this->m_connected_slots.push_back(conn);
-			pclass->signal_connect(this);
+			pclass->signalConnect(this);
 		}
 
 		void emit(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
@@ -2481,7 +2481,7 @@ namespace sigly {
 				arg4_type, arg5_type, arg6_type, arg7_type, 
 				arg8_type, mt_policy>(pclass, pmemfun);
 			this->m_connected_slots.push_back(conn);
-			pclass->signal_connect(this);
+			pclass->signalConnect(this);
 		}
 
 		void emit(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
