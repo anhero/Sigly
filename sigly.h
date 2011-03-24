@@ -373,7 +373,7 @@ namespace sigly {
 		typedef typename sender_set::const_iterator const_iterator;
 
 	public:
-		HasSlots(): mt_policy() {
+		HasSlots(): mt_policy(), active(true) {
 		}
 
 		HasSlots(const HasSlots& hs): mt_policy(hs) {
@@ -415,8 +415,21 @@ namespace sigly {
 			m_senders.erase(m_senders.begin(), m_senders.end());
 		}
 
+		void deactivateSlots() {
+			active = false;
+		}
+
+		void activateSlots() {
+			active = true;
+		}
+
+		bool areSlotsActive() const {
+			return active;
+		}
+
 	private:
 		sender_set m_senders;
+		bool active;
 	};
 
 	template<class mt_policy>
@@ -1692,7 +1705,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit();
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit();
+				}
 
 				it = itNext;
 			}
@@ -1707,7 +1722,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit();
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit();
+				}
 
 				it = itNext;
 			}
@@ -1745,7 +1762,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1);
+				}
 
 				it = itNext;
 			}
@@ -1760,7 +1779,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1);
+				}
 
 				it = itNext;
 			}
@@ -1799,7 +1820,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2);
+				}
 
 				it = itNext;
 			}
@@ -1814,7 +1837,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2);
+				}
 
 				it = itNext;
 			}
@@ -1854,7 +1879,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3);
+				}
 
 				it = itNext;
 			}
@@ -1869,7 +1896,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3);
+				}
 
 				it = itNext;
 			}
@@ -1910,7 +1939,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3, a4);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3, a4);
+				}
 
 				it = itNext;
 			}
@@ -1925,7 +1956,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3, a4);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3, a4);
+				}
 
 				it = itNext;
 			}
@@ -1970,7 +2003,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3, a4, a5);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3, a4, a5);
+				}
 
 				it = itNext;
 			}
@@ -1986,7 +2021,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3, a4, a5);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3, a4, a5);
+				}
 
 				it = itNext;
 			}
@@ -2034,7 +2071,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3, a4, a5, a6);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3, a4, a5, a6);
+				}
 
 				it = itNext;
 			}
@@ -2050,7 +2089,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3, a4, a5, a6);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3, a4, a5, a6);
+				}
 
 				it = itNext;
 			}
@@ -2098,7 +2139,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3, a4, a5, a6, a7);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3, a4, a5, a6, a7);
+				}
 
 				it = itNext;
 			}
@@ -2114,7 +2157,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3, a4, a5, a6, a7);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3, a4, a5, a6, a7);
+				}
 
 				it = itNext;
 			}
@@ -2163,7 +2208,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3, a4, a5, a6, a7, a8);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3, a4, a5, a6, a7, a8);
+				}
 
 				it = itNext;
 			}
@@ -2179,7 +2226,9 @@ namespace sigly {
 				itNext = it;
 				++itNext;
 
-				(*it)->emit(a1, a2, a3, a4, a5, a6, a7, a8);
+				if((*it)->getdest()->areSlotsActive()) {
+					(*it)->emit(a1, a2, a3, a4, a5, a6, a7, a8);
+				}
 
 				it = itNext;
 			}
