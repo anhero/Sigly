@@ -22,31 +22,63 @@
 
 #include <sigly/defines.h>
 
-#if defined(_SIGLY_HAS_WIN32_THREADS) || defined(_SIGLY_HAS_POSIX_THREADS)
 namespace sigly {
+#ifdef _SIGLY_HAS_WIN32_THREADS
 // The multi threading policies only get compiled in if they are enabled.
 class MultiThreadedLocal {
 public:
-	MultiThreadedLocal();
-
-	MultiThreadedLocal(const MultiThreadedLocal&);
-
-	virtual ~MultiThreadedLocal();
-
-	virtual void lock();
-
-	virtual void unlock();
-
+	MultiThreadedLocal() {
+		InitializeCriticalSection(&m_critsec);
+	}
+	
+	MultiThreadedLocal(const MultiThreadedLocal&) {
+		InitializeCriticalSection(&m_critsec);
+	}
+	
+	virtual ~MultiThreadedLocal() {
+		DeleteCriticalSection(&m_critsec);
+	}
+	
+	virtual void lock() {
+		EnterCriticalSection(&m_critsec);
+	}
+	
+	virtual void unlock() {
+		LeaveCriticalSection(&m_critsec);
+	}
+	
 private:
-#ifdef _SIGLY_HAS_WIN32_THREADS
 	CRITICAL_SECTION m_critsec;
+};
 #endif // _SIGLY_HAS_WIN32_THREADS
 
 #ifdef _SIGLY_HAS_POSIX_THREADS
+// The multi threading policies only get compiled in if they are enabled.
+class MultiThreadedLocal {
+public:
+	MultiThreadedLocal() {
+		pthread_mutex_init(&m_mutex, NULL);
+	}
+	
+	MultiThreadedLocal(const MultiThreadedLocal&) {
+		pthread_mutex_init(&m_mutex, NULL);
+	}
+	
+	virtual ~MultiThreadedLocal() {
+		pthread_mutex_destroy(&m_mutex);
+	}
+	
+	virtual void lock() {
+		pthread_mutex_lock(&m_mutex);
+	}
+	
+	virtual void unlock() {
+		pthread_mutex_unlock(&m_mutex);
+	}
+	
+private:
 	pthread_mutex_t m_mutex;
-#endif // _SIGLY_HAS_POSIX_THREADS
 };
+#endif // _SIGLY_HAS_POSIX_THREADS
 }
-#endif // defined(_SIGLY_HAS_WIN32_THREADS) || defined(_SIGLY_HAS_POSIX_THREADS)
-
 #endif // SIGLY_SIGLY_MULTI_THREADED_LOCAL_H_

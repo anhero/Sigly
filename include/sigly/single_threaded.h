@@ -4,13 +4,17 @@
 namespace sigly {
 class SingleThreaded {
 public:
-	SingleThreaded();
+	SingleThreaded() {
+	}
 
-	virtual ~SingleThreaded();
+	virtual ~SingleThreaded() {
+	}
 
-	virtual void lock();
+	virtual void lock() {
+	}
 
-	virtual void unlock();
+	virtual void unlock() {
+	}
 };
 }
 
