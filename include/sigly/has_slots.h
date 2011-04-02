@@ -27,6 +27,7 @@
 #include <sigly/multi_threaded_global.h>
 #include <sigly/multi_threaded_local.h>
 #include <sigly/lock_block.h>
+#include <sigly/signal_base.h>
 
 namespace sigly {
 template<class  mt_policy = SIGLY_DEFAULT_MT_POLICY>
