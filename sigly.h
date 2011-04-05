@@ -25,7 +25,7 @@ sigly - event/delegate (signal/slot) mechanism implementation for C++
 
 Library is written in C++03 and does not use C++0x features.
 
-To use the library, add the 'include' subdirectory to the list of the system include directories or
+To use the library, add the sigly.h file to the list of the system include directories or
 to your project.
 
 You can specify which multi-thread policy you want by defining a macro before including sigly or
