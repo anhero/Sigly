@@ -23,7 +23,7 @@ sigly - event/delegate (signal/slot) mechanism implementation for C++
 
     https://github.com/anhero/Sigly
 
-Library is written in C++03 and does not use C++0x features.
+Library is written in C++03 and does not use C++11 features.
 
 To use the library, add the sigly.h file to the list of the system include directories or
 to your project.
