@@ -21,7 +21,7 @@ THE SOFTWARE.
 
 sigly - event/delegate (signal/slot) mechanism implementation for C++
 
-    https://bitbucket.org/anhero/sigly
+    https://github.com/anhero/Sigly
 
 Library is written in C++03 and does not use C++0x features.
 
