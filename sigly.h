@@ -1,4 +1,4 @@
-/*
+ /*
  Copyright (c) 2011 Anhero Inc.
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1734,16 +1734,7 @@ namespace sigly {
 		}
 		
 		void operator()() {
-			lock_block<mt_policy> lock(this);
-			const_iterator it = this->m_connected_slots.begin();
-			const_iterator itEnd = this->m_connected_slots.end();
-			
-			while (it != itEnd) {
-				if ((*it)->getdest()->areSlotsActive()) {
-					(*it)->shoot();
-				}
-				++it;
-			}
+			shoot();
 		}
 	};
 	
@@ -1783,16 +1774,7 @@ namespace sigly {
 		}
 		
 		void operator()(arg1_type a1) {
-			lock_block<mt_policy> lock(this);
-			const_iterator it = this->m_connected_slots.begin();
-			const_iterator itEnd = this->m_connected_slots.end();
-			
-			while (it != itEnd) {
-				if ((*it)->getdest()->areSlotsActive()) {
-					(*it)->shoot(a1);
-				}
-				++it;
-			}
+			shoot(a1);
 		}
 	};
 	
@@ -1833,16 +1815,7 @@ namespace sigly {
 		}
 		
 		void operator()(arg1_type a1, arg2_type a2) {
-			lock_block<mt_policy> lock(this);
-			const_iterator it = this->m_connected_slots.begin();
-			const_iterator itEnd = this->m_connected_slots.end();
-			
-			while (it != itEnd) {
-				if ((*it)->getdest()->areSlotsActive()) {
-					(*it)->shoot(a1, a2);
-				}
-				++it;
-			}
+			shoot(a1,a2);
 		}
 	};
 	
@@ -1884,16 +1857,7 @@ namespace sigly {
 		}
 		
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3) {
-			lock_block<mt_policy> lock(this);
-			const_iterator it = this->m_connected_slots.begin();
-			const_iterator itEnd = this->m_connected_slots.end();
-			
-			while (it != itEnd) {
-				if ((*it)->getdest()->areSlotsActive()) {
-					(*it)->shoot(a1, a2, a3);
-				}
-				++it;
-			}
+			shoot(a1,a2,a3);
 		}
 	};
 	
@@ -1936,16 +1900,7 @@ namespace sigly {
 		}
 		
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4) {
-			lock_block<mt_policy> lock(this);
-			const_iterator it = this->m_connected_slots.begin();
-			const_iterator itEnd = this->m_connected_slots.end();
-			
-			while (it != itEnd) {
-				if ((*it)->getdest()->areSlotsActive()) {
-					(*it)->shoot(a1, a2, a3, a4);
-				}
-				++it;
-			}
+			shoot(a1,a2,a3,a4);
 		}
 	};
 	
@@ -1993,16 +1948,7 @@ namespace sigly {
 		
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
 		                arg5_type a5) {
-			lock_block<mt_policy> lock(this);
-			const_iterator it = this->m_connected_slots.begin();
-			const_iterator itEnd = this->m_connected_slots.end();
-			
-			while (it != itEnd) {
-				if ((*it)->getdest()->areSlotsActive()) {
-					(*it)->shoot(a1, a2, a3, a4, a5);
-				}
-				++it;
-			}
+			shoot(a1,a2,a3,a4,a5);
 		}
 	};
 	
@@ -2053,16 +1999,8 @@ namespace sigly {
 		
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
 		                arg5_type a5, arg6_type a6) {
-			lock_block<mt_policy> lock(this);
-			const_iterator it = this->m_connected_slots.begin();
-			const_iterator itEnd = this->m_connected_slots.end();
-			
-			while (it != itEnd) {
-				if ((*it)->getdest()->areSlotsActive()) {
-					(*it)->shoot(a1, a2, a3, a4, a5, a6);
-				}
-				++it;
-			}
+				shoot(a1,a2,a3,a4,a5,a6);
+
 		}
 	};
 	
@@ -2113,16 +2051,8 @@ namespace sigly {
 		
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
 		                arg5_type a5, arg6_type a6, arg7_type a7) {
-			lock_block<mt_policy> lock(this);
-			const_iterator it = this->m_connected_slots.begin();
-			const_iterator itEnd = this->m_connected_slots.end();
-			
-			while (it != itEnd) {
-				if ((*it)->getdest()->areSlotsActive()) {
-					(*it)->shoot(a1, a2, a3, a4, a5, a6, a7);
-				}
-				++it;
-			}
+				shoot(a1,a2,a3,a4,a5,a6,a7);
+
 		}
 	};
 	
@@ -2174,16 +2104,8 @@ namespace sigly {
 		
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
 		                arg5_type a5, arg6_type a6, arg7_type a7, arg8_type a8) {
-			lock_block<mt_policy> lock(this);
-			const_iterator it = this->m_connected_slots.begin();
-			const_iterator itEnd = this->m_connected_slots.end();
-			
-			while (it != itEnd) {
-				if ((*it)->getdest()->areSlotsActive()) {
-					(*it)->shoot(a1, a2, a3, a4, a5, a6, a7, a8);
-				}
-				++it;
-			}
+				shoot(a1,a2,a3,a4,a5,a6,a7,a8);
+
 		}
 	};
 	
